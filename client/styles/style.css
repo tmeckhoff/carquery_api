@@ -17,3 +17,10 @@ form {
     position:relative;
     padding:6px 15px;
 }
+
+.alert {
+    letter-spacing: 0.1em;
+    font-size: 15px;
+    padding-left: 200px;
+    margin-left: 100px;
+}

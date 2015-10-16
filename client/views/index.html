@@ -17,8 +17,8 @@
         <button type ="submit" class ="btn btn-success btn-md">SEARCH</button>
 
 </form>
+        <div class="alert alert-info col-md-9" ng-model="noDataMessage" ng-if="showNoDataMessage">{{noDataMessage}}</div>
     </div>
-        <div class="alert alert-info" ng-model="noDataMessage" ng-if="showNoDataMessage">{{noDataMessage}}</div>
         <div id="searchResults" class="col-md-6 well row" ng-repeat="vehicle in allVehicleData">
             <p id="carTitle">{{vehicle.year}}  {{vehicle.make}}  {{vehicle.model}}</p>
             <p>{{vehicle.trim}}</p>

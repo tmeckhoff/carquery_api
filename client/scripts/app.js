@@ -33,17 +33,16 @@ $scope.getTrims = function() {
             if (res.status !== 200) {
                 throw new Error("Failed to fetch vehicles!");
 
-            } else if (res.data.Trims === null) {//if no data comes back, show this message
+            } else if (!res.data.Trims.length) {//if no data comes back, show this message
                 $scope.noDataMessage = "Failed to retrieve any vehicles based on that information.";
                 $scope.showNoDataMessage = true;
-
-            } else {
-
                 setTimeout(function() {
-                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                    $(".alert").fadeTo(1500, 0).slideUp(600, function(){
                         $scope.showNoDataMessage = false;
                     });
                 }, 3000);
+
+            } else {
 
                 console.log(res.data.Trims);
 
