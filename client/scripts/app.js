@@ -25,6 +25,7 @@ $scope.getTrims = function() {
     console.log($scope.search);
 
     $scope.allVehicleData = [];//empty array of old search results
+    $scope.search = $scope.search.replace(/'/g, "");//removes any apostrophes
 
     $http.jsonp('http://www.carqueryapi.com/api/0.3/?callback=JSON_CALLBACK&cmd=getTrims&keyword=' + $scope.search)
         .then(function (res) {
