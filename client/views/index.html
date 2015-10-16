@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Identifix App</title>
+    <!-- STYLES-->
+    <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <!-- END STYLES-->
+</head>
+<body>
+
+<div class="container" ng-controller="appController">
+    <div class="col-md-12">
+<form ng-submit="getTrims()" id="searchForm" method="get">
+        <input type="text" class="search" placeholder="Search for a vehicle..." ng-model="search" required>
+        <button type ="submit" class ="btn btn-success btn-md">SEARCH</button>
+
+</form>
+    </div>
+        <div class="alert alert-info" ng-model="noDataMessage" ng-if="showNoDataMessage">{{noDataMessage}}</div>
+        <div id="searchResults" class="col-md-4 well" ng-repeat="vehicle in allVehicleData">
+            <p id="carTitle">{{vehicle.year}}  {{vehicle.make}}  {{vehicle.model}}</p>
+            <p>{{vehicle.trim}}</p>
+            <p>Engine: {{vehicle.engineCc}}L  {{vehicle.engineType}}{{vehicle.engineCycle}}</p>
+            <p>Transmission: {{vehicle.transmission}}</p>
+            <p>Horsepower: {{vehicle.horsepower}}</p>
+    </div>
+</div><!-- END CONTAINER-->
+<!-- SCRIPTS-->
+<script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+<script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.3.js"></script>
+<script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+<!-- END SCRIPTS-->
+</body>
+</html>
