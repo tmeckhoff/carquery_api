@@ -7,8 +7,8 @@
 <h4>Issues</h4>
 <p>1. $http.get error</p> <p>I chose to use AngularJS for this project but the API documentation focuses on jQuery. Therefore, the API's documentation was not helpful in constructing a GET request in AngularJS, which caused the following error: XMLHttpRequest cannot load.
 I solved this by Googling the error, which led me to this solution: http://stackoverflow.com/questions/26079927/access-control-allow-origin-issue-and-angular-http-service
-Changing my GET from $http.get to $http.jsonp and adding JSON_CALLBACK to the URL solved this issue.</p>
+Changing the GET from $http.get to $http.jsonp and adding JSON_CALLBACK to the URL solved this issue.</p>
 <p>2. Handling variations in year format</p>
-<p>I originally had difficulty solving this problem because early on I had tested different year formats, testing 11 and 2011, and thought they had brought up different results. Turns out that the original testing was incorrect and they do both bring up the same amount of results. So, the last thing to make sure all different year formats work is to remove apostrophes from the queries to ensure that '11 also brings up 2011 results:</p>
+<p>I originally had difficulty solving this problem because early on I had tested different year formats, testing 11 and 2011 and thought they had brought up different results. Turns out that the original testing was incorrect in some way because they do both bring up the same results. To make sure all different year formats work is to remove apostrophes from the queries to ensure that '11 also brings up 2011 results:</p>
 <p>$scope.search = $scope.search.replace(/'/g, "");</p>
 
