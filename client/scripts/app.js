@@ -26,11 +26,9 @@ $scope.getTrims = function() {
 
     $scope.allVehicleData = [];//empty array of old search results
 
-    $scope.search = "";//clear out search input
-
-
     $http.jsonp('http://www.carqueryapi.com/api/0.3/?callback=JSON_CALLBACK&cmd=getTrims&keyword=' + $scope.search)
         .then(function (res) {
+            $scope.search = "";//clear out search input
 
             if (res.status !== 200) {
                 throw new Error("Failed to fetch vehicles!");
