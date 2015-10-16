@@ -1,3 +1,6 @@
+<h4>Instructions</h4>
+<p>This application was built using Node.js. To run the application, download the repository and type "npm install" in terminal to download the external dependencies, which have been saved in the package.json file. To open the application, simply type "npm start" and go to http://localhost:5000/.</p>
+
 <p>Using the API from www.carqueryapi.com, I created a single page application which takes a search query of a year, make, model or trim for a vehicle and returns vehicle details based on that query.</p>
 <h4>Issues</h4>
 <p>1. $http.get error</p> <p>I chose to use AngularJS for this project but the API documentation focuses on jQuery. Therefore, the API's documentation was not helpful in constructing a GET request in AngularJS, which caused the following error: XMLHttpRequest cannot load.
