@@ -1,6 +1,6 @@
 <p>Using the API from www.carqueryapi.com, I created a single page application which takes a search query of a year, make, model or trim for a vehicle and returns vehicle details based on that query.</p>
 <h4>Issues</h4>
-<p>1. $http.get error</p> <p>I chose to use angularJS for this project but the API documentation focuses on jQuery. Therefore, the API's documentation was not helpful in constructing a GET request in AngularJS, which caused the following error: XMLHttpRequest cannot load.
+<p>1. $http.get error</p> <p>I chose to use AngularJS for this project but the API documentation focuses on jQuery. Therefore, the API's documentation was not helpful in constructing a GET request in AngularJS, which caused the following error: XMLHttpRequest cannot load.
 I solved this by Googling the error, which led me to this solution: http://stackoverflow.com/questions/26079927/access-control-allow-origin-issue-and-angular-http-service
 Changing my GET from $http.get to $http.jsonp and adding JSON_CALLBACK to the URL solved this issue.</p>
 <p>2. Handling variations in year format</p>
@@ -13,4 +13,5 @@ Changing my GET from $http.get to $http.jsonp and adding JSON_CALLBACK to the UR
            return search;
           }
         };
+        
   Obviously this solution isn't ideal because year numbers aren't the only numbers involved in the vehicle details, like engine_cc for example, but I think it could work for the small scope of this exercise.</p>
