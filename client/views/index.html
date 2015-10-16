@@ -19,12 +19,12 @@
 </form>
     </div>
         <div class="alert alert-info" ng-model="noDataMessage" ng-if="showNoDataMessage">{{noDataMessage}}</div>
-        <div id="searchResults" class="col-md-4 well" ng-repeat="vehicle in allVehicleData">
+        <div id="searchResults" class="col-md-4 well row" ng-repeat="vehicle in allVehicleData">
             <p id="carTitle">{{vehicle.year}}  {{vehicle.make}}  {{vehicle.model}}</p>
             <p>{{vehicle.trim}}</p>
-            <p>Engine: {{vehicle.engineCc}}L  {{vehicle.engineType}}{{vehicle.engineCycle}}</p>
-            <p>Transmission: {{vehicle.transmission}}</p>
-            <p>Horsepower: {{vehicle.horsepower}}</p>
+            <p><b>Engine:</b> {{vehicle.engineCc}}L {{vehicle.engineType}}{{vehicle.engineCycle}}</p>
+            <p><b>Transmission:</b> {{vehicle.transmission}}</p>
+            <p><b>Horsepower:</b> {{vehicle.horsepower}}hp</p>
     </div>
 </div><!-- END CONTAINER-->
 <!-- SCRIPTS-->

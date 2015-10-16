@@ -11,13 +11,7 @@ myApp.controller("appController", ['$rootScope', '$scope', '$http', function($ro
     $scope.vehicleData = {};
     $scope.allVehicleData = [];
 
-    //This function was my attempt to check to see if the query includes a 2 digit number
-    //$scope.hasNumbers = function(search) {
-    //     var regex = /^\d{2}$/;
-    //    if(regex.test(search) === true) {
-    //        return search;
-    //    }
-    //};
+
 
     $rootScope.$on('hideMessages', function(){
         $scope.$apply(function(){
@@ -28,9 +22,9 @@ myApp.controller("appController", ['$rootScope', '$scope', '$http', function($ro
 
 
 $scope.getTrims = function() {
+    console.log($scope.search);
 
     $scope.allVehicleData = [];//empty array of old search results
-    console.log($scope.search);
 
     $scope.search = "";//clear out search input
 
@@ -62,10 +56,11 @@ $scope.getTrims = function() {
                     $scope.vehicleData.trim = res.data.Trims[i].model_trim;
 
                     if(res.data.Trims[i].model_engine_cc !== null){
-                    $scope.vehicleData.engineCc = res.data.Trims[i].model_engine_cc / 1000;
-                    $scope.vehicleData.engineType = res.data.Trims[i].model_engine_type;
-                    $scope.vehicleData.engineCycle = res.data.Trims[i].model_engine_cycle;
+                        $scope.vehicleData.engineCc = res.data.Trims[i].model_engine_cc / 1000;
+                        $scope.vehicleData.engineType = res.data.Trims[i].model_engine_type;
+                        $scope.vehicleData.engineCycle = res.data.Trims[i].model_engine_cycle;
                     }
+
                     $scope.vehicleData.transmission = res.data.Trims[i].model_transmission_type;
                     $scope.vehicleData.horsepower = res.data.Trims[i].model_engine_power_ps;
                     $scope.vehicleData.vehicleId = res.data.Trims[i].model_id;
