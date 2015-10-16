@@ -9,14 +9,6 @@
 I solved this by Googling the error, which led me to this solution: http://stackoverflow.com/questions/26079927/access-control-allow-origin-issue-and-angular-http-service
 Changing my GET from $http.get to $http.jsonp and adding JSON_CALLBACK to the URL solved this issue.</p>
 <p>2. Handling variations in year format</p>
-<p>Due to the time constraints of the exercise, I was unable to solve this problem. This is something I haven't dealt with before and through some Googling and trying to think through it logically, here's what I think might work:</p>
-<p>This is a problem for regular expressions! Once a query is submitted, you would need to check whether it contains a 2 digit number. If it does, then you would need to add a "19" or "20" to the front of it based on what the number is, i.e. if it's equal or greater than 60, add "19"; less than or equal to 20, add  "20". Then, proceed to send the query to the API like normal. The following function is my initial attempt at the first part of this solution:</p>
-<p>
-    $scope.hasTwoNumbers = function(search) {
-       var regex = /^\d{2}$/;
-       if(regex.test(search) === true) {
-           return search;
-          }
-        };
-      </p>  
-  <p>Obviously this solution isn't ideal because year numbers aren't the only numbers involved in the vehicle details, like engine_cc for example, but I think it could work for the small scope of this exercise.</p>
+<p>I originally had difficulty solving this problem because early on I had tested different year formats, testing 11 and 2011, and thought they had brought up different results. Turns out that the original testing was incorrect and they do both bring up the same amount of results. So, the last thing to make sure all different year formats work is to remove apostrophes from the queries to ensure that '11 also brings up 2011 results:</p>
+<p>$scope.search = $scope.search.replace(/'/g, "");</p>
+
